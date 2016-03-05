@@ -1,0 +1,22 @@
+
+void connect(TreeLinkNode *root)
+{
+	TreeLinkNode* top=root;
+	TreeLinkNode* tmp =nullptr;
+	while(top!=nullptr)
+	{	
+		
+		TreeLinkNode *curr = top->left;
+		if(tmp != nullptr)
+		{
+			tmp->next = curr;
+		}
+		if( curr != nullptr)
+		{
+			curr->next = top->right;
+			tmp = curr->next;
+		}
+		top= top->next;
+	}
+	connect(root->left);
+}
